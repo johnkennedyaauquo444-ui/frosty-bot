@@ -1,0 +1,14 @@
+from telegram import Update
+from telegram.ext import Application, CommandHandler, ContextTypes
+
+TOKEN = "9004000347:AAHNX05Z50jT59tjTMpLxGrQLFKj3QcMvHw"
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("❄️ Frosty Fortune is LIVE 24/7! 🎉\n\nNo more Pydroid needed!\nSend /start anytime to play.")
+
+app = Application.builder().token(TOKEN).build()
+app.add_handler(CommandHandler("start", start))
+
+print("Frosty Bot starting...")
+app.run_polling()
+print("Bot stopped")
